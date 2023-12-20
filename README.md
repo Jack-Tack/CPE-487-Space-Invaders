@@ -53,5 +53,44 @@ right, left, shoot : IN STD_LOGIC; -- buttons for moving right, left, and shooti
 red : OUT STD_LOGIC;
 green : OUT STD_LOGIC;
 blue : OUT STD_LOGIC
+  * For the signals and arrays, we added these lines underneath the architecture for bat_n_ball, which would constantly be used later:
+    * CONSTANT ship_w : INTEGER := 16; -- ship width in pixels
+    CONSTANT ship_h : INTEGER := 16; -- ship height in pixels
+    SIGNAL ship_spawn : STD_LOGIC := '1';
+    SIGNAL ship_on : STD_LOGIC := '0'; -- indicates whether ship is at current pixel position
+    -- enemy variables
+    TYPE EnemyRecord IS RECORD
+        x : STD_LOGIC_VECTOR(10 DOWNTO 0);
+        y : STD_LOGIC_VECTOR(10 DOWNTO 0);
+        projectile_spawn : STD_LOGIC;
+        projectile_on : STD_LOGIC;
+        projectile_x : STD_LOGIC_VECTOR(10 DOWNTO 0);
+        projectile_y : STD_LOGIC_VECTOR(10 DOWNTO 0);
+        spawn : STD_LOGIC;
+        onn : STD_LOGIC;
+    END RECORD;
+    TYPE EnemyArray IS ARRAY (0 TO 2, 0 TO 4) OF EnemyRecord;
+    CONSTANT EnemyRecordInit : EnemyRecord := (x => (OTHERS => '0'), y => (OTHERS => '0'), projectile_spawn => '0', projectile_on => '0', projectile_x => (OTHERS => '0'), projectile_y => (OTHERS => '0'), spawn => '0', onn => '0');
+    SIGNAL enemies : EnemyArray := (
+    (EnemyRecordInit, EnemyRecordInit, EnemyRecordInit, EnemyRecordInit, EnemyRecordInit), 
+    (EnemyRecordInit, EnemyRecordInit, EnemyRecordInit, EnemyRecordInit, EnemyRecordInit),
+    (EnemyRecordInit, EnemyRecordInit, EnemyRecordInit, EnemyRecordInit, EnemyRecordInit));
+    SIGNAL speed : INTEGER := 1;
+    -- ship position
+    SIGNAL ship_x : STD_LOGIC_VECTOR(10 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(400, 11);
+    CONSTANT ship_y : STD_LOGIC_VECTOR(10 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(550, 11);
+    -- projectile variables
+    SIGNAL projectile_spawn : STD_LOGIC := '0';
+    SIGNAL projectile_on : STD_LOGIC := '0';
+    SIGNAL projectile_w : INTEGER := 2;
+    SIGNAL projectile_h : INTEGER := 6;
+    SIGNAL projectile_x : STD_LOGIC_VECTOR(10 DOWNTO 0) := (OTHERS => '0');
+    SIGNAL projectile_y : STD_LOGIC_VECTOR(10 DOWNTO 0) := (OTHERS => '0');
+
+* Next, we assigned colors to the player, the projectiles of both the player and the enemies, and the enemies themselves, while making the background black.
+  * For this, we added in these lines, making use of the red, blue, and green from pong.vhd:
+    * red <= ship_on;
+    green <= projectile_on OR enemies(0, 0).projectile_on OR enemies(1, 0).projectile_on OR enemies(2, 0).projectile_on OR enemies(0, 1).projectile_on OR enemies(1, 1).projectile_on OR enemies(2, 1).projectile_on OR enemies(0, 2).projectile_on OR enemies(1, 2).projectile_on OR enemies(2, 2).projectile_on OR enemies(0, 3).projectile_on OR enemies(1, 3).projectile_on OR enemies(2, 3).projectile_on OR enemies(0, 4).projectile_on OR enemies(1, 4).projectile_on OR enemies(2, 4).projectile_on;
+    blue <= enemies(0, 0).onn OR enemies(1, 0).onn OR enemies(2, 0).onn OR enemies(0, 1).onn OR enemies(1, 1).onn OR enemies(2, 1).onn OR enemies(0, 2).onn OR enemies(1, 2).onn OR enemies(2, 2).onn OR enemies(0, 3).onn OR enemies(1, 3).onn OR enemies(2, 3).onn OR enemies(0, 4).onn OR enemies(1, 4).onn OR enemies(2, 4).onn;
 
 # RESPONSIBILITIES/TIMELINE/DIFFICULTIES
