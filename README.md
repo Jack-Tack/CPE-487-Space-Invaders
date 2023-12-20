@@ -26,6 +26,18 @@ Your final submission should be a github repository of very similar format to th
 
 # SUMMARY OF STEPS
 
+* First, we decided to take the base code of the pong lab assignment and repurpose it. To achieve this, we deleted all of the code in bat_n_ball.vhd and edited the code in pong.vhd that was associated. We then added in the constraint file the ability to press the upper button to shoot, the left button to move left, and the right button to move right. We didn’t want to use the controller that was used in the pong lab as we did not wish to take it home with us to continue working.
+
+* After this initial copying and cleaning, we created the base signals, arrays, and ports that we would eventually need to complete the project. For this we edited both the pong.vhd and the bat_n_ball.vhd files.
+
+* Next, we assigned colors to the player, the projectiles of both the player and the enemies, and the enemies themselves, while making the background black.
+
+* After the setup, we added in a process that allowed us to create a square player and move it using the buttons on the board. Within this process were functions for movement, and collision (which was based on what was done for the bat in the pong lab).
+
+* We then created a process for the player projectile, where it spawned when the appropriate button was pressed and despawned when hitting an enemy. Furthermore, it would move constantly once spawned and would despawn if the enemy reached the goal or if it reached the boundary.
+
+* The final process that we created was the one for the enemy. The enemies spawn spaced out when the start button is pressed, and each have their own individual collision within the environment and with the player projectile. If one is ever hit, only that particular enemy is deleted, and each enemy can fire at the player. When the enemies collectively hit either side wall, they move down slightly and begin to move in the opposite direction. If the player is ever hit by the enemy projectile, all of the enemies despawn as the game is considered over. Additionally, the enemy projectile has its own logic that is controlled within the enemy process.
+
 # VIDEO
 
 # MODIFICATIONS
