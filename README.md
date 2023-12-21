@@ -71,13 +71,16 @@ BTNU : IN STD_LOGIC;
 
 * After this initial copying and cleaning, we created the base signals, arrays, and ports that we would eventually need to complete the project. For this we edited both the pong.vhd and the bat_n_ball.vhd files.
   * In pong.vhd, we added this to the bat_n_ball initialization:
+    ```
     * right, left, shoot : IN STD_LOGIC;
+    ```
   * Then we added this in the port mapping for bat_n_ball:
     * right => BTNR,
 left => BTNL,
 shoot => BTNU,
   * For the initial ports, we added these lines of code, which allowed us to use the data from pong.vhd and the other files:
     * v_sync : IN STD_LOGIC;
+```
 pixel_row : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
 pixel_col : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
 start : IN STD_LOGIC; -- initiates start
@@ -118,6 +121,7 @@ blue : OUT STD_LOGIC
     SIGNAL projectile_h : INTEGER := 6;
     SIGNAL projectile_x : STD_LOGIC_VECTOR(10 DOWNTO 0) := (OTHERS => '0');
     SIGNAL projectile_y : STD_LOGIC_VECTOR(10 DOWNTO 0) := (OTHERS => '0');
+```
 
 * Next, we assigned colors to the player, the projectiles of both the player and the enemies, and the enemies themselves, while making the background black.
   * For this, we added in these lines, making use of the red, blue, and green from pong.vhd:
