@@ -381,7 +381,7 @@ blue : OUT STD_LOGIC;
 
 ## Responsibilities
 * Aidan Rudd worked with the enemy logic and the various processes associated with it. Also worked on converting lab 6 to work with the game 
-* John Goceljak and Matt Bairstow helped with projectile logic and win conditions, as well as planning for how to implement the enemies. 
+* John Goceljak and Matt Bairstow helped with projectile logic and death conditions, as well as planning for how to implement the enemies. 
 
 
 ## Timeline
