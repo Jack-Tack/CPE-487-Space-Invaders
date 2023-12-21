@@ -90,8 +90,8 @@ green : OUT STD_LOGIC;
 blue : OUT STD_LOGIC;
 ```
   * For the signals and arrays, we added these lines underneath the architecture for bat_n_ball, which would constantly be used later:
-    * CONSTANT ship_w : INTEGER := 16; -- ship width in pixels
-  ```
+    ```
+    CONSTANT ship_w : INTEGER := 16; -- ship width in pixels
     CONSTANT ship_h : INTEGER := 16; -- ship height in pixels
     SIGNAL ship_spawn : STD_LOGIC := '1';
     SIGNAL ship_on : STD_LOGIC := '0'; -- indicates whether ship is at current pixel position
