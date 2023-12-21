@@ -157,6 +157,7 @@ blue : OUT STD_LOGIC
 
 * We then created a process for the player projectile, where it spawned when the appropriate button was pressed and despawned when hitting an enemy. Furthermore, it would move constantly once spawned and would despawn if the enemy reached the goal or if it reached the boundary.
   * This was much more challenging as we had to account for the projectile despawning and hitting the enemies, however it wasn’t so challenging that it took too long to complete:
+  ```
     * -- process to handle projectile movement
     projectile_movement : PROCESS (v_sync, shoot, enemies, pixel_col, pixel_row, ship_spawn, projectile_spawn, ship_x, projectile_x, projectile_y, projectile_w, projectile_h) IS
     BEGIN
@@ -220,6 +221,7 @@ blue : OUT STD_LOGIC
             END IF;
         END IF;
     END PROCESS;
+ ```
 
 * The final process that we created was the one for the enemy. The enemies spawn spaced out when the start button is pressed, and each have their own individual collision within the environment and with the player projectile. If one is ever hit, only that particular enemy is deleted, and each enemy can fire at the player. When the enemies collectively hit either side wall, they move down slightly and begin to move in the opposite direction. If the player is ever hit by the enemy projectile, all of the enemies despawn as the game is considered over. Additionally, the enemy projectile has its own logic that is controlled within the enemy process.
   * This was extremely hard as we had very little experience working with arrays in VHDL, but we managed to pull through and figure out how to make each enemy individual while also moving as a collective:
