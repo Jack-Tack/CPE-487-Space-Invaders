@@ -219,7 +219,8 @@ blue : OUT STD_LOGIC
 
 * The final process that we created was the one for the enemy. The enemies spawn spaced out when the start button is pressed, and each have their own individual collision within the environment and with the player projectile. If one is ever hit, only that particular enemy is deleted, and each enemy can fire at the player. When the enemies collectively hit either side wall, they move down slightly and begin to move in the opposite direction. If the player is ever hit by the enemy projectile, all of the enemies despawn as the game is considered over. Additionally, the enemy projectile has its own logic that is controlled within the enemy process.
   * This was extremely hard as we had very little experience working with arrays in VHDL, but we managed to pull through and figure out how to make each enemy individual while also moving as a collective:
-    * -- process to handle enemies
+    * ```
+      -- process to handle enemies
     enemy : PROCESS (v_sync, start, enemies, pixel_col, pixel_row, projectile_x, projectile_y, projectile_w, projectile_h, ship_x) IS
         VARIABLE shoot_counter : INTEGER := 0;
     BEGIN
@@ -355,5 +356,6 @@ blue : OUT STD_LOGIC
             END LOOP;
         END IF;
     END PROCESS;
+    ```
 
 # RESPONSIBILITIES/TIMELINE/DIFFICULTIES
