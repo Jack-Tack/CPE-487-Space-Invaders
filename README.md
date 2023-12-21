@@ -395,6 +395,5 @@ blue : OUT STD_LOGIC;
 * Projectile not spawning: Initially the projectile wasn’t spawning in at all, this was fixed by reworking the drawing logic.
 * Hardcoding each enemy proved to be problematic, so we had to learn how VHDL arrays and loops worked in order to make an array of enemies. Since it was feared some of the functions would be too slow, we manually addressed all the enemies in the array in the functions rather than leaving it to loops most of the time.
 * When killing an enemy, the enemy shooting changes. Not exactly a problem but we don’t know why this behavior exists
-* 
 
 
