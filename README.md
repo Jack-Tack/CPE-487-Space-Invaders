@@ -79,8 +79,8 @@ BTNU : IN STD_LOGIC;
 left => BTNL,
 shoot => BTNU,
   * For the initial ports, we added these lines of code, which allowed us to use the data from pong.vhd and the other files:
-    * v_sync : IN STD_LOGIC;
 ```
+v_sync : IN STD_LOGIC;
 pixel_row : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
 pixel_col : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
 start : IN STD_LOGIC; -- initiates start
