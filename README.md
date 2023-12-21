@@ -332,7 +332,7 @@ blue : OUT STD_LOGIC
                         ...
                     END IF;
       
-                    Shooting behavior every 1000th v_sync
+                    -- Shooting behavior every 1000th v_sync
                     shoot_counter := shoot_counter + 1;
                     IF enemies(i, j).spawn = '1' AND shoot_counter >= 1000 THEN
                         enemies(i, j).projectile_x <= enemies(i, j).x;
