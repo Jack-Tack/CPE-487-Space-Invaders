@@ -23,8 +23,40 @@ Your final submission should be a github repository of very similar format to th
 
 # SUMMARY OF STEPS
 
+### 1. Create a new RTL project _pong_ in Vivado Quick Start
+
+* Create six new source files of file type VHDL called **_clk_wiz_0_**, **_clk_wiz_0_clk_wiz_**, **_vga_sync_**, **_bat_n_ball_**, **_adc_if_**, and **_pong_**
+
+* Create a new constraint file of file type XDC called **_pong_**
+
+* Choose Nexys A7-100T board for the project
+
+* Click 'Finish'
+
+* Click design sources and copy the VHDL code from clk_wiz_0, clk_wiz_0_clk_wiz, vga_sync.vhd, bat_n_ball.vhd, adc_if.vhd, pong.vhd
+
+* Click constraints and copy the code from pong.xdc
+
+### 2. Run synthesis
+
+### 3. Run implementation and open implemented design
+
+### 4. Generate bitstream, open hardware manager, and program device
+
+* Click 'Generate Bitstream'
+
+* Click 'Open Hardware Manager' and click 'Open Target' then 'Auto Connect'
+
+* Click 'Program Device' then xc7a100t_0 to download pong.bit to the Nexys A7-100T board
+
+* Push BTNC to start the game and try to shoot all the blue circles before they reach the bottom.
+
+
+
 # VIDEO
 
+   ![Demonstration.MOV]([https://github.com/kevinwlu/dsd/blob/master/Nexys-A7/Lab-1/a7.png](https://github.com/Jack-Tack/CPE-487-Space-Invaders/blob/main/Demonstration.MOV)
+   
 # MODIFICATIONS
 
 * First, we decided to take the base code of the pong lab assignment and repurpose it. To achieve this, we deleted all of the code in bat_n_ball.vhd and edited the code in pong.vhd that was associated. We then added in the constraint file the ability to press the upper button to shoot, the left button to move left, and the right button to move right. We didn’t want to use the controller that was used in the pong lab as we did not wish to take it home with us to continue working.
