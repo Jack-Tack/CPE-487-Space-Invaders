@@ -72,12 +72,14 @@ BTNU : IN STD_LOGIC;
 * After this initial copying and cleaning, we created the base signals, arrays, and ports that we would eventually need to complete the project. For this we edited both the pong.vhd and the bat_n_ball.vhd files.
   * In pong.vhd, we added this to the bat_n_ball initialization:
     ```
-    * right, left, shoot : IN STD_LOGIC;
+    right, left, shoot : IN STD_LOGIC;
     ```
   * Then we added this in the port mapping for bat_n_ball:
-    * right => BTNR,
+ ```
+ right => BTNR,
 left => BTNL,
 shoot => BTNU,
+```
   * For the initial ports, we added these lines of code, which allowed us to use the data from pong.vhd and the other files:
 ```
 v_sync : IN STD_LOGIC;
