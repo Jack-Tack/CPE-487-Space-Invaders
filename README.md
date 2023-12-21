@@ -55,7 +55,7 @@ Your final submission should be a github repository of very similar format to th
 
 # VIDEO
 
-   ![Demonstration.MOV]([https://github.com/kevinwlu/dsd/blob/master/Nexys-A7/Lab-1/a7.png](https://github.com/Jack-Tack/CPE-487-Space-Invaders/blob/main/Demonstration.MOV))
+https://github.com/Jack-Tack/CPE-487-Space-Invaders/assets/73898301/3f761f39-31ce-4b55-942a-ca854ea8fba6
    
 # MODIFICATIONS
 
