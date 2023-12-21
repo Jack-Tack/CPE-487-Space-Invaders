@@ -49,7 +49,7 @@ Your final submission should be a github repository of very similar format to th
 
 * Click 'Program Device' then xc7a100t_0 to download pong.bit to the Nexys A7-100T board
 
-* Push BTNC to start the game and try to shoot all the blue circles before they reach the bottom.
+* Push BTNC to start the game and try to shoot all the blue squares before they reach the bottom.
 
 
 
