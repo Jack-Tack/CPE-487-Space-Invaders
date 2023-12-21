@@ -61,13 +61,17 @@ https://github.com/Jack-Tack/CPE-487-Space-Invaders/assets/73898301/3f761f39-31c
 
 * First, we decided to take the base code of the pong lab assignment and repurpose it. To achieve this, we deleted all of the code in bat_n_ball.vhd and edited the code in pong.vhd that was associated. We then added in the constraint file the ability to press the upper button to shoot, the left button to move left, and the right button to move right. We didn’t want to use the controller that was used in the pong lab as we did not wish to take it home with us to continue working.
   * Within pong.xdc, we added these three lines, which allowed us to use the upper, left, and right buttons:
-    * set_property -dict { PACKAGE_PIN M18   IOSTANDARD LVCMOS33 } [get_ports { BTNU }]; #IO_L4N_T0_D05_14 Sch=btnu
+``` 
+set_property -dict { PACKAGE_PIN M18   IOSTANDARD LVCMOS33 } [get_ports { BTNU }]; #IO_L4N_T0_D05_14 Sch=btnu
 set_property -dict { PACKAGE_PIN P17   IOSTANDARD LVCMOS33 } [get_ports { BTNL }]; #IO_L12P_T1_MRCC_14 Sch=btnl
 set_property -dict { PACKAGE_PIN M17   IOSTANDARD LVCMOS33 } [get_ports { BTNR }]; #IO_L10N_T1_D15_14 Sch=btnr
+```
   * We then added these lines in pong.vhd:
-    * BTNR : IN STD_LOGIC;
+```
+BTNR : IN STD_LOGIC;
 BTNL : IN STD_LOGIC;
 BTNU : IN STD_LOGIC;
+```
 
 * After this initial copying and cleaning, we created the base signals, arrays, and ports that we would eventually need to complete the project. For this we edited both the pong.vhd and the bat_n_ball.vhd files.
   * In pong.vhd, we added this to the bat_n_ball initialization:
