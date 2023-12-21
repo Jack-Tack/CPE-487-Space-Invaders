@@ -129,17 +129,20 @@ blue : OUT STD_LOGIC;
     SIGNAL projectile_h : INTEGER := 6;
     SIGNAL projectile_x : STD_LOGIC_VECTOR(10 DOWNTO 0) := (OTHERS => '0');
     SIGNAL projectile_y : STD_LOGIC_VECTOR(10 DOWNTO 0) := (OTHERS => '0');
-```
+    ```
 
 * Next, we assigned colors to the player, the projectiles of both the player and the enemies, and the enemies themselves, while making the background black.
-  * For this, we added in these lines, making use of the red, blue, and green from pong.vhd:
-    * red <= ship_on;
+ For this, we added in these lines, making use of the red, blue, and green from pong.vhd:
+   ```
+    red <= ship_on;
     green <= projectile_on OR enemies(0, 0).projectile_on OR enemies(1, 0).projectile_on OR enemies(2, 0).projectile_on OR enemies(0, 1).projectile_on OR enemies(1, 1).projectile_on OR enemies(2, 1).projectile_on OR enemies(0, 2).projectile_on OR enemies(1, 2).projectile_on OR enemies(2, 2).projectile_on OR enemies(0, 3).projectile_on OR enemies(1, 3).projectile_on OR enemies(2, 3).projectile_on OR enemies(0, 4).projectile_on OR enemies(1, 4).projectile_on OR enemies(2, 4).projectile_on;
     blue <= enemies(0, 0).onn OR enemies(1, 0).onn OR enemies(2, 0).onn OR enemies(0, 1).onn OR enemies(1, 1).onn OR enemies(2, 1).onn OR enemies(0, 2).onn OR enemies(1, 2).onn OR enemies(2, 2).onn OR enemies(0, 3).onn OR enemies(1, 3).onn OR enemies(2, 3).onn OR enemies(0, 4).onn OR enemies(1, 4).onn OR enemies(2, 4).onn;
+   ```
 
 * After the setup, we added in a process that allowed us to create a square player and move it using the buttons on the board. Within this process were functions for movement, and collision (which was based on what was done for the bat in the pong lab).
   * This is the process that we created, which was definitely the simplest in terms of complexity and didn’t require much thinking outside the box:
-    * shipdraw : PROCESS (v_sync, right, left, start, enemies, pixel_col, pixel_row, ship_spawn, projectile_w, projectile_h, ship_x) IS
+    ```
+    shipdraw : PROCESS (v_sync, right, left, start, enemies, pixel_col, pixel_row, ship_spawn, projectile_w, projectile_h, ship_x) IS
     BEGIN     
         -- Movement logic with counter to control speed
         IF rising_edge(v_sync) THEN
@@ -162,6 +165,7 @@ blue : OUT STD_LOGIC;
             ship_on <= '0';
         END IF;
     END PROCESS;
+    ```
 
 * We then created a process for the player projectile, where it spawned when the appropriate button was pressed and despawned when hitting an enemy. Furthermore, it would move constantly once spawned and would despawn if the enemy reached the goal or if it reached the boundary.
   * This was much more challenging as we had to account for the projectile despawning and hitting the enemies, however it wasn’t so challenging that it took too long to complete:
