@@ -221,6 +221,7 @@ blue : OUT STD_LOGIC
   * This was extremely hard as we had very little experience working with arrays in VHDL, but we managed to pull through and figure out how to make each enemy individual while also moving as a collective:
     * ```
       -- process to handle enemies
+      ```
     enemy : PROCESS (v_sync, start, enemies, pixel_col, pixel_row, projectile_x, projectile_y, projectile_w, projectile_h, ship_x) IS
         VARIABLE shoot_counter : INTEGER := 0;
     BEGIN
@@ -236,7 +237,7 @@ blue : OUT STD_LOGIC
             enemies(2, 0).spawn <= '1';
             ...
         END IF;
-        
+        ```
         -- Collision with projectile
         FOR i IN 0 TO 2 LOOP
             FOR j IN 0 TO 4 LOOP
