@@ -379,21 +379,22 @@ blue : OUT STD_LOGIC;
 
 # RESPONSIBILITIES/TIMELINE/DIFFICULTIES
 
-##Responsibilities
+## Responsibilities
 * Aidan Rudd worked with the enemy logic and the various processes associated with it. Also worked on converting lab 6 to work with the game 
 * John Goceljak and Matt Bairstow helped with projectile logic and win conditions, as well as planning for how to implement the enemies. 
 
 
-##Timeline
+## Timeline
 * Week 1: Converted Lab 6 code to create a player block and spawn a projectile. Recolored the background, projectile, and player
 * Week 2: Fixed projectile drawing code, added signals for enemies
 * Week 3: Added logic for single enemy movement and enemy death
 * Week 4: Made enemies into an array and added looping logic to check for enemy deaths. Added enemy shooting
 
-##Problems
+## Problems
 * Faulty Cable: while working on the project our cable broke and we needed to go in person to get a new one
 * Projectile not spawning: Initially the projectile wasn’t spawning in at all, this was fixed by reworking the drawing logic.
-* Hardcoding each enemy proved to be problematic, so we had to learn how VHDL arrays and loops worked in order to make an array of enemies.
+* Hardcoding each enemy proved to be problematic, so we had to learn how VHDL arrays and loops worked in order to make an array of enemies. Since it was feared some of the functions would be too slow, we manually addressed all the enemies in the array in the functions rather than leaving it to loops most of the time.
 * When killing an enemy, the enemy shooting changes. Not exactly a problem but we don’t know why this behavior exists
+* 
 
 
